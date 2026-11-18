@@ -3,5 +3,30 @@ using namespace std;
 
 int main() 
 {
-   
+   int t;
+   cin >>t;
+   while(t--)
+   {
+       int n,p=0;
+       cin >>n;
+       vector<int> v(n);
+       for (int i = 0; i < n; i++) 
+       {
+           cin >>v[i];
+       }
+       for (int i = 0; i < n; i++) 
+       {
+           for (int j = 0; j < n; j++) 
+           {
+            p=__gcd(v[i],v[j]);
+            if (p<=2)
+            {
+                cout <<"yes"<<endl;
+                
+            }
+
+           }
+           cout <<"NO"<<endl;
+       }
+   }
 }
