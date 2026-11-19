@@ -3,36 +3,42 @@ using namespace std;
 
 int main() 
 {
-	int n;
-	cin >>n;
-	for (int i=0;i<n;i++)
+	int t;
+	cin >>t;
+	while(t--)
 	{
-		int p; cin >>p;
-		if (p<=10)
+		int n,k,count=0;
+		cin >>n>>k;
+		vector<char> v(n);
+		set<char>set;
+		map<char,int>m;
+		for (int i = 0; i < n; i++) 
 		{
-			cout <<p<<endl;
-		}
-		else if (p<=100)
-		{
-			cout <<19-(10-p/10)<<endl;
-		}
-		else if (p<=1000)
-		{
-			cout <<28-(10-p/100)<<endl;
-		}
-		else if (p<=10000)
-		{
-			cout <<37-(10-p/1000)<<endl;
-		}
-		else if (p<=100000)
-		{
-			cout <<46-(10-p/10000)<<endl;
-		}
-		else if (p<=1000000)
-		{
-			cout <<55-(10-p/100000)<<endl;
-		}
-
+			cin >>v[i];
 			
+		}
+		for(auto x:v)
+		{
+			set.insert(x);
+		}
+		for (int i = 0; i < n; i++) 
+		{
+			m[v[i]]++;
+		}
+		for (int i = 0; i < n; i++) 
+		{
+			if (m[v[i]]%2==0)
+			{
+				count++;
+			}
+		}
+		if (k+1>=count)
+		{
+			cout <<"YES"<<endl;
+		}
+		else
+		{
+			cout <<"NO"<<endl;
+		}
 	}
 }
