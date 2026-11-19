@@ -9,30 +9,22 @@ int main()
 	{
 		int n,k,count=0;
 		cin >>n>>k;
-		vector<char> v(n);
-		set<char>set;
+        string s;
+        cin>>s;
 		map<char,int>m;
-		for (int i = 0; i < n; i++) 
+		for(int i=0;i<n;i++)
 		{
-			cin >>v[i];
-			
+			m[s[i]]++;
 		}
-		for(auto x:v)
-		{
-			set.insert(x);
-		}
-		for (int i = 0; i < n; i++) 
-		{
-			m[v[i]]++;
-		}
-		for (int i = 0; i < n; i++) 
-		{
-			if (m[v[i]]%2==0)
-			{
-				count++;
-			}
-		}
-		if (k+1>=count)
+        for(char i='a';i<='z';i++)
+        {
+            if(m[i]%2!=0)
+            {
+                count++;
+            }
+        }
+
+		if (count-1<=k)
 		{
 			cout <<"YES"<<endl;
 		}
