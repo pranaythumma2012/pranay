@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    set<int> s = {24, 74, 1, 58, 99, 50, 13, 50, 84, 67, 5, 50, 50};
+
+    // a) Checking  14 
+    auto it = s.lower_bound(14);
+    if (it != s.end() && *it == 14) {
+        cout << "a) 14 exists" << endl;
+    } else {
+        cout << "a) 14 does not exist" << endl;
+    }
+
+    // b) Next value of 50
+    auto it50 = s.find(50);
+    it50++; 
+    cout << "b) Next value of 50: " << *it50 << endl;
+
+    // c) First value
+    auto first = s.begin();
+    cout << "c) First value: " << *first << endl;
+
+    // d) Last value
+    auto last = s.end();
+    last--; 
+    cout << "d) Last value: " << *last << endl;
+
+    // e) Second value
+    auto second = s.begin();
+    second++; 
+    cout << "e) Second value: " << *second << endl;
+
+    // f) Last but one 
+    auto secondLast = s.end();
+    secondLast--; 
+    secondLast--; 
+    cout << "f) Last but one value: " << *secondLast << endl;
+
+    // g) Number of elements
+    cout << "g) Total elements: " << s.size() << endl;
+
+    // h) True if not empty, else false
+    if (!s.empty()) {
+        cout << "h) true" << endl;
+    } else {
+        cout << "h) false" << endl;
+    }
+
+    // i) Remove 50 and print all values
+    s.erase(50);
+    cout << "i) After removing 50: ";
+    for (int num : s) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    // j) Remove first value and print all values
+    s.erase(s.begin());
+    cout << "j) After removing first value:  ";
+    for (int num : s) {
+        cout << num << " ";
+    }
+    cout << endl;
+}
