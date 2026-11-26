@@ -63,3 +63,48 @@ int main() {
     }
     cout << endl;
 }
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+#define do double
+#define fl float
+#define b bool
+#define re return
+#define ve vector
+#define se set
+
+b check(ll m,ll s)
+{
+    re ( m *(m+3)/2)>=s;
+}
+
+int bs (int s)
+{
+    ll l=0,r=1e9;
+    while(l<r)
+    {
+        ll  mid=l+(r-l)/2;
+
+        if (check(mid,s))
+        {
+            r=mid;
+        }
+        else
+        {
+            l=mid+1;
+        }
+    }
+    return r;
+
+}
+
+
+int main() 
+{
+    ll n,k;
+    cin >>n>>k;
+    ll sum=n+k;
+    cout <<n-bs(sum)<<endl;
+}
