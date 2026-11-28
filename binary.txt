@@ -108,3 +108,31 @@ int main()
     ll sum=n+k;
     cout <<n-bs(sum)<<endl;
 }
+----------------------------------------------------------------------------------------------------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+bool check(ll mid,map<ll,ll>g,ll n){
+	ll sum=0;
+	for (auto [k,v]:g)sum+=v/mid;
+	return (sum>=n);
+}
+ll bs(map<ll,ll> g,ll n){
+	ll l=1,r=1e9;
+	while(l<r){	
+		ll mid=l+((r-l)/2);
+		if(!(check(mid,g,n)))r=mid;
+		else l=mid+1;
+	}
+	return l-1;
+}
+int main(){
+	ll n,m,v;
+	cin >>n>>m;
+	map<ll,ll> g;
+	for (ll i=0;i<m;i++){
+		cin >>v;
+		g[v]++;
+	}
+	cout <<bs(g,n);
+}
